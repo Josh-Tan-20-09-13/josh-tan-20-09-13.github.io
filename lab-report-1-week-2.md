@@ -19,3 +19,11 @@ To end, I demonstrate that I am aware about features within shell such as piping
 ![Optimize Running](/assets/09.png)  
 The next image is me running a commands remotely as a one-liner rather than loging into shell and manually typing in the commands. I total, this adds 1 character for ever new command I need to enter as a semicolon and saves me the hassle of needing to type in my password if I did not already have an authorized SSH key on the system. Aside from that, the only time lost would be the delay during for which the requests will be handled. The command I ran is 26 characters long and typing it out manually would result in 23 characters excluding the return keystroke.
 ![Remote Running](/assets/10.png)
+The time spent running the command on the server using a command is identical to if I were to run the commands through shell after logging in.
+![Time Command](/assets/11.png)
+Frankly, I do not see a way to get this process under 10 key presses and mouse clicks when you include typing out the ssh login command. That itself is 25 characters. However, I could create a shell script the login process so it is saved by creating the following file and giving me the login in 4 charaters at minimum when I name it a single character filename.
+```
+#!/bin/bash
+ssh <USERNAME>@<HOSTNAME> "${@}"
+```
+![Pleasant Running](/assets/12.png)
