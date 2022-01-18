@@ -33,5 +33,5 @@ for i in "${@}" ; do
     javac "${i}".java; java "${1}"
 done
 ```
-![Pleasant Running](/assets/12.png)
+![Pleasant Running](/assets/12.png)  
 As you can see above, I have shortened the login to the server and the compilation and running of java programs to two keystrokes. All I need to do is specify what I program I want to be compiled and run.
