@@ -21,9 +21,17 @@ The next image is me running a commands remotely as a one-liner rather than logi
 ![Remote Running](/assets/10.png)
 The time spent running the command on the server using a command is identical to if I were to run the commands through shell after logging in.
 ![Time Command](/assets/11.png)
-Frankly, I do not see a way to get this process under 10 key presses and mouse clicks when you include typing out the ssh login command. That itself is 25 characters. However, I could create a shell script the login process so it is saved by creating the following file and giving me the login in 4 charaters at minimum when I name it a single character filename.
+Frankly, I do not see a way to get this process under 10 key presses and mouse clicks when you include typing out the ssh login command. That itself is 25 characters. However, I could create a shell script the login process so it is saved by creating the following file and giving me the login in 4 charaters at minimum when I name it a single character filename. I can reduce a further 2 characters by adding the path to this shell script to my PATH environment variable so I can run it without specifying relative or full paths.
 ```
 #!/bin/bash
 ssh <USERNAME>@<HOSTNAME> "${@}"
 ```
+After this, I can insert the following snippet into my `.bashrc` file which creates a bash function to compile and run java files in a single step. I can reduce my keystroke count for the run command to a single character if I name my function a single character like "j"
+```
+function j() {
+for i in "${@}" ; do 
+    javac "${i}".java; java "${1}"
+done
+```
 ![Pleasant Running](/assets/12.png)
+As you can see above, I have shortened the login to the server and the compilation and running of java programs to two keystrokes. All I need to do is specify what I program I want to be compiled and run.
