@@ -1,18 +1,16 @@
 # CSE 15L - Lab Report 2
-Below are the commits that I made to finish the lab: there are a total of 4 of them for the week 4 lab.  
-![First](/lab2-assets/01.png)  
-![Second](/lab2-assets/02.png)  
-![Third](/lab2-assets/03.png)  
-![Fourth Part 1](/lab2-assets/04-1.png)  
-![Fourth Part 2](/lab2-assets/04-2.png)  
-Really, the only problem that I had regarding the program was `test-file6.md` because I am unsure if the link to the image qualifies as a link or not that the program should detect. It is not a hyperlink, but it is still a link.  
+The following is the main commit which solved the majority of issues with the original program.
+![Main Commit](/lab2-assets/main_commit.png)
+Initially, the only problem I had with the program was that it considered images as links. The following writeup includes artificially created problems by modifying the code.
 
 The main change that I made was during week 3 lab where I scrapped the initial system of finding links and replaced it with my own at [this commit](https://github.com/Josh-Tan-20-09-13/markdown-parse/commit/a1f1ee60bf01305ffc4f4df8c6ffe6be3be6fdb4).  
 These changes were made because of the test files as shown below:
 ![Problem Cases](/lab2-assets/05.png)  
 
+### Hangups
 As you can see, the program hangs up on running:  
 Hangups also occur due to messy and weird/invalid markdown such as a `](` in the middle of the file or newlines so the loop in the initial code did not ever complete.  
+This was a problem for all the files in the [default test files](https://github.com/Josh-Tan-20-09-13/markdown-parse/tree/main/default-files) and my [custom test files](https://github.com/Josh-Tan-20-09-13/markdown-parse/tree/main/markdown-files).  
 ![Hangup](/lab2-assets/06.png)  
 
 The two main non-hangups or misidentified links that produced errors are as shown below:  
@@ -25,3 +23,8 @@ This commit completely changes the way which the program finds all the links wit
 ![Reverse](/lab2-assets/09.png)  
 
 The bugs in the programming would be how the parsing was handled. Such as the while loop being used, which is what caused the hangups. A for loop was switched for it so that all items within the file would be processed once and remove this issue. Faulty user input was when the markdown had syntax errors and is related to a bug regarding how the program read through the file. A symptom would be when a user enters in a markdown file which is not supposed to have a link such as `test-file5` yet the program still picks up on it anyway and returns something it should not.  
+
+### Images
+After lab on week 5, I received confirmation from my TA that images were not supposed to be recognized as links, so [this commit](https://github.com/Josh-Tan-20-09-13/markdown-parse/commit/9638f010adefaa47c9a576324ef368648e1efe70) fixed the bug. Specifically, this fixed the problem with [test file 6](https://github.com/Josh-Tan-20-09-13/markdown-parse/blob/main/default-files/test-file6.md) returning a link when nothing should be returned.  
+
+![Test 6 Fail](/lab2-assets/test6.png)
