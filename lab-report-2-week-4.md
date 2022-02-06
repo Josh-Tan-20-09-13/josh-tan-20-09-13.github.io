@@ -49,4 +49,4 @@ One issue that was encountered was based on [test file 8](https://github.com/Jos
 
 ![RFC 3986](rfc3986.png)  
 
-The bug here was caused by the program not recognizing invalid characters and bad user input, leading to the sympton of the program printing out an invalid link.
+The bug here was caused by the program not recognizing invalid characters and bad user input, leading to the sympton of the program printing out an invalid link. In the appendix for RFC 3986, it explicity states that URIs are delimited with double-quotes, angular brackets, or whitespaces. This means that they cannot be included in the link.
