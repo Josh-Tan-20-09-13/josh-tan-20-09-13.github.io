@@ -33,7 +33,7 @@ After lab on week 5, I received confirmation from my TA that images were not sup
 The bug here is that the code initially did not check if the format for a link began with a bang, so it would interpret images as links as well, which led to the symptom of the link being displayed on the terminal even when nothing was supposed to be present. This was fixed by adding a negative lookbehind to the regex that I used to check link formatting to ensure that symbol does not appear beforehand.
 
 ### Uneven Brackets
-One of the problems that was encountered fairly early was the program being unable to process text where there was not closing brackets and parenthesis in the markdown or when there were grouping symbols within the link text or when there was syntax signifying the beginning of a link but no end. This was in a very early version of the program that was removed and changed in [this commit](https://github.com/Josh-Tan-20-09-13/markdown-parse/commit/a1f1ee60bf01305ffc4f4df8c6ffe6be3be6fdb4).  
+One of the problems that was encountered fairly early was the program being unable to process text where there was not closing brackets and parenthesis in the markdown or when there were grouping symbols within the link text or when there was syntax signifying the beginning of a link but no end. This was in a very early version of the program that was removed and changed in [this commit](https://github.com/Josh-Tan-20-09-13/markdown-parse/commit/a1f1ee60bf01305ffc4f4df8c6ffe6be3be6fdb4) and [this commit](https://github.com/Josh-Tan-20-09-13/markdown-parse/commit/b41675ae7527b8a5ae93cc5c57fcbaefc5467177).
 The following default files were the main offenders to this problem: [test 3](https://github.com/Josh-Tan-20-09-13/markdown-parse/blob/main/default-files/test-file3.md), [test 4](https://github.com/Josh-Tan-20-09-13/markdown-parse/blob/main/default-files/test-file4.md), [test 5](https://github.com/Josh-Tan-20-09-13/markdown-parse/blob/main/default-files/test-file5.md), [test 7](https://github.com/Josh-Tan-20-09-13/markdown-parse/blob/main/default-files/test-file7.md).
 
 The majority of these problems were fixed by changing the while loop in the original code to a for loop to prevent hangups. This solves the problem when there are mismatched grouping symbols but does not solve the problem with nested ones.
@@ -43,3 +43,10 @@ The following custom markdown files cause those issues mentioned above: [another
 As seen here, the domains have random characters in them: ![No Regex](/lab2-assets/bug.png)
 
 The bug with these files is that the program originally searched for a closing grouping symbol in order to terminate it's search, so it would hang up and keep on running. There was a change made after this or select link in the program that was completely bogus. The resulting symptom would be an incorrect link being displayed or the program hanging up as seen in the 1st problem of this lab. 
+
+### Valid URL Characters
+One issue that was encountered was based on [test file 8](https://github.com/Josh-Tan-20-09-13/markdown-parse/blob/main/default-files/test-file8.md) which has a link with spaces in it. Initially, [this commit](https://github.com/Josh-Tan-20-09-13/markdown-parse/commit/a1f1ee60bf01305ffc4f4df8c6ffe6be3be6fdb4) returned the text that states there is a link on line one. However, this text is not a valid link since spaces are supposed to be replaced by `%20` and not in the link as a literal character. [This commit](https://github.com/Josh-Tan-20-09-13/markdown-parse/commit/b41675ae7527b8a5ae93cc5c57fcbaefc5467177) fixes this.  
+
+![RFC 3986](rfc3986.png)  
+
+The bug here was caused by the program not recognizing invalid characters and bad user input, leading to the sympton of the program printing out an invalid link.
