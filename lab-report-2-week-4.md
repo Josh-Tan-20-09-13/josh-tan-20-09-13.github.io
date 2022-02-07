@@ -47,6 +47,6 @@ The bug with these files is that the program originally searched for a closing g
 ### Valid URL Characters
 One issue that was encountered was based on [test file 8](https://github.com/Josh-Tan-20-09-13/markdown-parse/blob/main/default-files/test-file8.md) which has a link with spaces in it. Initially, [this commit](https://github.com/Josh-Tan-20-09-13/markdown-parse/commit/a1f1ee60bf01305ffc4f4df8c6ffe6be3be6fdb4) returned the text that states there is a link on line one. However, this text is not a valid link since spaces are supposed to be replaced by `%20` and not in the link as a literal character. [This commit](https://github.com/Josh-Tan-20-09-13/markdown-parse/commit/b41675ae7527b8a5ae93cc5c57fcbaefc5467177) fixes this.  
 
-![RFC 3986](rfc3986.png)  
+![RFC 3986](/lab2-assets/rfc3986.png)  
 
 The bug here was caused by the program not recognizing invalid characters and bad user input, leading to the sympton of the program printing out an invalid link. In the appendix for RFC 3986, it explicity states that URIs are delimited with double-quotes, angular brackets, or whitespaces. This means that they cannot be included in the link.
