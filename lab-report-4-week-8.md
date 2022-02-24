@@ -1,6 +1,6 @@
 # CSE 15L - Lab Report 4
-Reviewed Markdown Parse [repo](https://github.com/ucsd-cse15l-w22/markdown-parse) with my modified version [here](https://github.com/Josh-Tan-20-09-13/markdown-parse/blob/main/MarkdownParse-modified.java)  
-Personal Markdown Parse [repo](https://github.com/Josh-Tan-20-09-13/markdown-parse)  
+Reviewed Markdown Parse [repo](https://github.com/ucsd-cse15l-w22/markdown-parse) with the code [here](https://github.com/Josh-Tan-20-09-13/markdown-parse/tree/main/ucParse)
+Personal Markdown Parse [repo](https://github.com/Josh-Tan-20-09-13/markdown-parse) with the code [here](https://github.com/Josh-Tan-20-09-13/markdown-parse/tree/main/regexParse)
 # Snippet 1
 Image of expected markdown:  
 ![Snippet 1](/lab4-assets/snip1.png)
