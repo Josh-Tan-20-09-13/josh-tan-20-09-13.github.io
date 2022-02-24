@@ -45,3 +45,8 @@ Code for Test:
 ![Snip3 Code](/lab4-assets/psnip3.png)
 Test Result:  
 ![Snip3 Test](/lab4-assets/ptest3.png)
+
+# Responses
+1. The change to fix this should be fairly simple given the implementation of my current code. I can think of two ways of potentially fixing this problem: either adjusting the regular expression to verify that the block does not appear within code backticks, or I can change the logic in the code to filter out all text appearing between code blocks. I think the more sensible solution would be the latter since the regular expression pattern could potentially pick up links outside of two code blocks.
+2. For the second snippet, the only problem is that links with parenthesis in the link. I believe the best solution here would be to adjust my regular expression pattern accordingly in order to account for the inner parenthesis. To do so, I need to adjust my code accordingly to not split the string by the `(` character. If the regular expression does not work, I may need to incorporate logic within the pattern so that the regex gets all possible links and there is further logic to confirm if the link is valid; this more complicated solution would most likely exceed the 10 line limit.
+3. This can be fixed by adjusting the regular expression to also include the search 0 or 1 newlines in the search for links. This should be a fairly easy fix in the regular expression.
