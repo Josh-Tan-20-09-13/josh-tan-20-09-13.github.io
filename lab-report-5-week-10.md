@@ -24,3 +24,8 @@ The next bug I found was in test file 342 with the following contents:
 ```
 [not a `link](/foo`)
 ```
+This is not a link because the markdown file inludes part of the link in a code with a single backtick.
+The expected result for this is `[]`. My program also provides `[]` but this is due to sheer coincidence and not intentional design whereas the provided implementation returns `[/foo\`]`  
+The bug here is that the provided implementation only accounts for code blocks with three backticks and not code segments with a single backtick.  
+To resolve this problem, there should also be code checking for code segments with a single backtick in addition to code checking for a code block with three backticks.  
+This solution can also be used for my implementation of markdown parse.
