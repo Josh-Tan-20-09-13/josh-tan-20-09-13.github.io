@@ -18,6 +18,8 @@ To begin with, none of the implementations recognize a colon following the squar
 This is the initial bug which prompts this error in both programs.  
 However, my implementation suffers another bug where the program is unable to recognize nested parenthesis inside of a link: this is because I use regular expressions and I did not use a regular expression that accounts for multiple nested parenthesis.  
 To fix this, I think that a negative lookahead can be placed before the search for parenthesis so that the program will get all included parenthesis but the last one.  
+I need to change the following code by removing the split for "(" characters and then altering the regex.  
+![regex segment](/lab5-assets/regex_fix.png)
 
 # Bug 2
 The next bug I found was in test file 342 with the following contents:
@@ -25,7 +27,9 @@ The next bug I found was in test file 342 with the following contents:
 [not a `link](/foo`)
 ```
 This is not a link because the markdown file inludes part of the link in a code with a single backtick.
-The expected result for this is `[]`. My program also provides `[]` but this is due to sheer coincidence and not intentional design whereas the provided implementation returns `[/foo\`]`  
+The expected result for this is `[]`. My program also provides `[]` but this is due to sheer coincidence and not intentional design whereas the provided implementation returns `[/foo``]`  
 The bug here is that the provided implementation only accounts for code blocks with three backticks and not code segments with a single backtick.  
 To resolve this problem, there should also be code checking for code segments with a single backtick in addition to code checking for a code block with three backticks.  
+Specifically, the following lines need to be addressed by also including single backtick search for valid links
+![code segment](/lab5-assets/code_fix.png)
 This solution can also be used for my implementation of markdown parse.
